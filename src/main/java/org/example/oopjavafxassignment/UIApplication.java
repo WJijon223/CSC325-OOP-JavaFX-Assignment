@@ -17,6 +17,7 @@ public class UIApplication extends Application {
         Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
 
         Scene scene = new Scene(fxmlLoader.load(), screenBounds.getWidth(), screenBounds.getHeight());
+        scene.getStylesheets().add(UIApplication.class.getResource("/org/example/oopjavafxassignment/style.css").toExternalForm());
         stage.setTitle("CSC325 OOP/JavaFX Assignment | William Jijon");
         stage.setScene(scene);
         stage.show();
