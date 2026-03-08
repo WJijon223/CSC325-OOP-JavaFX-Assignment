@@ -1,16 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="org.example.oopjavafxassignment.UIController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
-
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.oopjavafxassignment.UIController" stylesheets="style.css">
+    <top>
+        <MenuBar>
+            <Menu text="File">
+                <MenuItem text="New" />
+                <MenuItem text="Open" />
+                <MenuItem text="Save" />
+                <MenuItem text="Exit" />
+            </Menu>
+            <Menu text="Edit">
+                <MenuItem text="Undo" />
+                <MenuItem text="Redo" />
+            </Menu>
+            <Menu text="Theme" />
+            <Menu text="Help" />
+        </MenuBar>
+    </top>
+    <left>
+        <VBox alignment="TOP_CENTER" spacing="10" styleClass="left-pane">
+            <padding><Insets top="20" left="10" right="10" bottom="10"/></padding>
+            <ImageView fx:id="profileImageView" fitWidth="150" fitHeight="150" pickOnBounds="true" preserveRatio="true" />
+        </VBox>
+    </left>
+    <center>
+        <TableView fx:id="studentTable" styleClass="main-table">
+            <columns>
+                <TableColumn fx:id="idColumn" text="ID" prefWidth="50" />
+                <TableColumn fx:id="firstNameColumn" text="First Name" prefWidth="100" />
+                <TableColumn fx:id="lastNameColumn" text="Last Name" prefWidth="100" />
+                <TableColumn fx:id="departmentColumn" text="Department" prefWidth="120" />
+                <TableColumn fx:id="majorColumn" text="Major" prefWidth="100" />
+                <TableColumn fx:id="emailColumn" text="Email" prefWidth="150" />
+            </columns>
+        </TableView>
+    </center>
+    <right>
+        <VBox spacing="10" alignment="TOP_CENTER" styleClass="right-pane">
+            <padding><Insets top="10" left="10" right="10" bottom="10"/></padding>
+            <TextField fx:id="idField" promptText="ID" />
+            <TextField fx:id="firstNameField" promptText="First Name" />
+            <TextField fx:id="lastNameField" promptText="Last Name" />
+            <TextField fx:id="departmentField" promptText="Department" />
+            <TextField fx:id="majorField" promptText="Major" />
+            <TextField fx:id="emailField" promptText="Email" />
+            <TextField fx:id="imageUrlField" promptText="imageURL" />
+            <Button fx:id="clearButton" text="Clear" styleClass="action-button" onAction="#onClear" />
+            <Button fx:id="addButton" text="Add" styleClass="action-button" onAction="#onAdd" />
+            <Button fx:id="deleteButton" text="Delete" styleClass="action-button" onAction="#onDelete" />
+            <Button fx:id="editButton" text="Edit" styleClass="action-button" onAction="#onEdit" />
+        </VBox>
+    </right>
+</BorderPane>
