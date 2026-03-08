@@ -42,6 +42,7 @@ public class UIController {
         studentTable.setItems(students);
         // Set default profile image
         profileImageView.setImage(new Image(getClass().getResourceAsStream("/org/example/oopjavafxassignment/user.png")));
+
     }
 
     @FXML
@@ -96,49 +97,6 @@ public class UIController {
             onClear();
         }
     }
-
-    @FXML
-    private void onTableClicked() {
-        Student selected = studentTable.getSelectionModel().getSelectedItem();
-        if (selected != null) {
-            idField.setText(selected.getId());
-            firstNameField.setText(selected.getFirstName());
-            lastNameField.setText(selected.getLastName());
-            departmentField.setText(selected.getDepartment());
-            majorField.setText(selected.getMajor());
-            emailField.setText(selected.getEmail());
-            imageUrlField.setText(selected.getImageUrl());
-            if (selected.getImageUrl() != null && !selected.getImageUrl().isEmpty()) {
-                try {
-                    profileImageView.setImage(new Image(selected.getImageUrl(), true));
-                } catch (Exception e) {
-                    profileImageView.setImage(new Image(getClass().getResourceAsStream("/org/example/oopjavafxassignment/user.png")));
-                }
-            } else {
-                profileImageView.setImage(new Image(getClass().getResourceAsStream("/org/example/oopjavafxassignment/user.png")));
-            }
-        }
-    }
 }
 
-class Student {
-    private String id, firstName, lastName, department, major, email, imageUrl;
-    public Student(String id, String firstName, String lastName, String department, String major, String email, String imageUrl) {
-        this.id = id; this.firstName = firstName; this.lastName = lastName;
-        this.department = department; this.major = major; this.email = email; this.imageUrl = imageUrl;
-    }
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
-    public String getFirstName() { return firstName; }
-    public void setFirstName(String firstName) { this.firstName = firstName; }
-    public String getLastName() { return lastName; }
-    public void setLastName(String lastName) { this.lastName = lastName; }
-    public String getDepartment() { return department; }
-    public void setDepartment(String department) { this.department = department; }
-    public String getMajor() { return major; }
-    public void setMajor(String major) { this.major = major; }
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
-    public String getImageUrl() { return imageUrl; }
-    public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
-}
+
